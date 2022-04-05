@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en , fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fourth Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <main class="main">
+        <div class="GameRound">
+            <span class="spans" title="Round"><img src="icons/update-arrows.png" alt="Round"><span class="GameRoundZero">0</span></span>
+            <span class="border-span spans" title="Win"><img src="icons/trophy.png" alt="Win"><span class="GameWinZero">0</span></span>
+            <span class="border-span spans " title="Guesses"><img class="spanGuesses" src="pictures/question.png" alt="Guesses"><span class="GameGuessesZero">0</span></span>
+            <span class="border-span spans" title="Score"><img src="icons/star.png" alt="Player Score"><span class="GameScoreZero">0</span></span>
+        </div>
+        <div class="overlay">
+            <div class="Tilte">
+                <p>Word <br> Guessing Game</p>
+            </div>
+        </div>
+        <section class="main">
+            <section class="Container" id="0">
+                <section class="GameHolder">
+                    <div class="gameContainer">
+                        <div>
+                            <div>
+                                <p class="textGuess">reutuf</p>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Type Your Guess" class="input">
+                            </div>
+                        </div>
+                        <div class="messagesContainer">
+                            <div class="messageContainer">
+                                <p class="Pmessage"></p>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn" id="guessBTN">guess</button>
+                        </div>
+                    </div>
+                </section>  
+            </section>
+        </section>
+        <section>
+            <div>
+                <button type="button" class="RunGame">
+                    Run Game
+                </button>
+                <div class="fixWordContainer">
+                    <button class="anotherWord">Show the Word</button>
+                </div>
+            </div>
+        </section>
+        <div class="WinContent">
+            <p>Win</p>
+        </div>
+        <div class="messageScoreContainer">
+            <p class="scoreMessage">Your score is not Enough</p>
+        </div>
+        <div class="GuideContainer">
+            <div class="GuideContent">
+                <div class="GuideTitle"><h3>Game Guide</h3></div>
+                <div class="GameGuide">
+                    <ul>
+                        <li>
+                            <span>1 : This <span><img class="icon-Guide" src="icons/update-arrows.png" alt=""></span> Icon indicate how many rounds you have played.</span>
+                        </li>
+                        <li>
+                            <span>2 : This <span><img class="icon-Guide" src="icons/trophy.png" alt=""></span> Icon  shows how many times you have won.</span>
+                        </li>
+                        <li>
+                            <span>3 : This <span><img class="icon-Guide" src="pictures/question.png" alt=""></span> Icon Shows the number of your Guesses.</span>
+                        </li>
+                        <li>
+                            <span>4 : This <span><img class="icon-Guide" src="icons/star.png" alt=""></span> Icon Shows your Score.</span>
+                        </li>
+                        <li>
+                            <span>5 : If you click on the <span class="ShowTheWordSpan"><mark>Show The Word</mark></span> Button, 2 Points will be deducted from your score.</span>
+                        </li>
+                        <li>
+                            <span>
+                                <span><img class="icon-Guide attention" src="pictures/2682803_attention_erro_exclamation_mark_warn_icon.png" alt=""></span>
+                                Are you Tired? you can Complete the Game via the off icon and See your Achievements 👌😜.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="Closecontainer">
+                    <img src="icons/close.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="OffBTN">
+                <i class="fas fa-power-off" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="Offcontainer">
+            <div class="CloseQuestionBox">
+                <div class="titleCloseBox">
+                    <h5>You Sure ?</h5>
+                </div>
+                <div class="BtnClosBox">
+                    <button class="CancelBtn">Cansel</button>
+                    <button class="YesBtn">Yes</button>
+                </div> 
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="EndGameOverlay">
+            <div class="container">
+                <div class="AchivementContainer">
+                    <div>
+                        <h1>
+                            End of the <br> Game
+                        </h1>
+                    </div>
+                    <div class="pEndcontainer">
+                        <div><p class="pEnd">Rounds  : <span class="Rounds spanEnd">0</span></p></div>
+                        <div><p class="pEnd">Wins : <span class="Wins spanEnd">0</span></p></div>
+                        <div><p class="pEnd">Guesses : <span class="Guesses spanEnd">0</span></p></div>
+                        <div><p class="pEnd">Scores : <span class="Scores spanEnd">0</span></p></div>
+                    </div>
+                </div>
+                <div class="FooterEndPage">
+                    <p>Reload the Page To play Again</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

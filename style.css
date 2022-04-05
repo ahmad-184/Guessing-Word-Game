@@ -1,0 +1,711 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background: url(pictures/4.jpg) center / cover no-repeat;
+    position: relative;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+    transition: opacity .5s .3s ease-in-out;
+}
+
+body::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1212121c;
+}
+
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in-out;
+}
+
+.Container {
+    display: none;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+.GameRound {
+    background-color: #000000a1;
+    padding: 10px 25px;
+    font-size: 15.5px;
+    color: #f4f4f4;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .4px;
+    border-bottom: 3px solid #c5c5c5;
+}
+
+.spans {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.spans > img {
+    width: 25px;
+}
+
+.spanGuesses {
+    width: 30px !important;
+}
+
+.GameRoundZero , .GameWinZero ,.GameGuessesZero ,.GameScoreZero {
+    border-bottom: 2px solid #19d3f1;
+    border-radius: 6px;
+}
+
+.GameWinZero {
+    border-color: #34f119;
+}
+
+.GameGuessesZero {
+    border-color: #ff1717;
+}
+
+.GameScoreZero {
+    border-color: rgb(195, 0, 255);
+}
+
+.GameHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.RunGame {
+    color: white;
+    border: none;
+    padding: 13px 36px;
+    background-color: #25103e;
+    border-radius: 4px;
+    border: 2px solid #8939bf;
+    box-shadow: 0px 0px 14px 0px #e639ff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .9px;
+    transition: transform .1s ease-in-out , opacity .5s ease-in-out;
+    z-index: 6;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    bottom: 1rem;
+    font-family: 'Fredoka One', cursive;
+}
+
+.gameContainer {
+    transition: all 1s ease;
+    width: 300px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    border: 2px solid #916f28;
+    margin-top: 3.9rem;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #00000085, rgba(0, 0, 0, 0.918));
+}
+
+.gameContainer > div:last-child {
+    justify-self: flex-end;
+}
+
+.input {
+    padding: 18px 20px 18px 10px;
+    font-size: 17px;
+    background-color: #121212;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.808);
+    letter-spacing: .5px;
+    border: 2px solid #ffffff63;
+    /* font-family: Fredoka One; */
+    font-family: 'Vazirmatn', 'Fredoka One' , sans-serif;
+    text-align: center;
+}
+
+.input::placeholder {
+    font-size: 15px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.btn {
+    background-color: #3b7595;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+    position: relative;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn:active {
+    transform: translateY(3px);
+}
+
+.gameContainer > div:first-child div {
+    display: flex;
+    justify-content: center;
+}
+
+.score {
+    padding: 8px;
+    background-color: #42a57500;
+    border-radius: 43%;
+    border: 2px solid darkgrey;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.textGuess {
+    letter-spacing: 5px;
+    margin-bottom: 26px;
+    border-radius: 2px;
+    padding: 8px 14px;
+    color: #bddb2a;
+    font-weight: bold;
+    font-size: 27px;
+    border-bottom: 2px solid #dbb342;
+    position: relative;
+    bottom: 1rem;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.Pmessage {
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: .4px;
+    position: absolute;
+    margin-top: -21px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 16rem;
+    font-family: 'Oswald', sans-serif;
+    transition: all .6s ease;
+    letter-spacing: .5px;
+}
+
+.messagesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+    text-align: center;
+}
+
+.active {
+    background-color: #1d1e20;
+    padding: 9px 24px;
+    border: 2px solid #78c45d;
+    box-shadow: 0 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #050513;
+    background: url(pictures/5.jpg) 0px -53px / cover no-repeat;
+    z-index: 2;
+    width: 100%;
+    transition: clip-path .5s ease-in-out;
+    clip-path: circle(100%);
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(#0000 0%,#00000096 65%);
+}
+
+.btnColor {
+    background-color: #121212 !important;
+}
+
+.WinContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000c9;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    opacity: 0;
+    transition: all .4s ease-in-out;
+}
+
+.WinContent > p {
+    position: relative;
+    bottom: 4rem;
+    font-weight: 600;
+    font-size: 82px;
+    color: #39df39;
+    font-family: 'Oswald', sans-serif;
+    animation: third 1.5s ease-in-out infinite;
+}
+
+.Tilte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8.5rem;
+}
+.Tilte > p {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    width: 100%;
+    font-weight: 800;
+    letter-spacing: .5px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url(pictures/istockphoto-1248542684-612x612.jpg);
+    color: #ffffffb5;
+    /* font-family: Fredoka One; */
+    font-family: 'Fredoka One', cursive;
+    animation: second 3s ease-in-out infinite;
+    position: relative;
+}
+
+.messageScoreContainer {
+    position: absolute;
+    color: #ff5353;
+    top: 5rem;
+    background-color: rgb(102, 26, 26);
+    padding: 8px 12px;
+    border-radius: 25px;
+    letter-spacing: .5px;
+    opacity: 0;
+    display: none;
+    transition: all .4s ease;
+    font-weight: bold;
+    box-shadow: 0 0 10px black;
+    font-size: 17px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.anotherWord {
+    padding: 5px 8px;
+    border-radius: 4px;
+    color: white;
+    background-color: #60491e;
+    font-size: 15px;
+    letter-spacing: .5px;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    border: 3px solid #ffb630;
+    position: absolute;
+    bottom: 12px;
+    transition: all .2s;
+}
+
+.anotherWord:active {
+    transform: scale(.93);
+} 
+
+.animatin {
+    animation: first .6s infinite;
+}
+
+.fixWordContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 4rem;
+    background-color: #0f0a00d6;
+    border-top: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes first {
+    0% {
+        transform: scale(1) ;
+    }
+    50% {
+        transform: scale(.95) ;
+    }
+    100% {
+        transform: scale(1) ;
+    }
+}
+
+@keyframes second {
+    0% {
+        transform: translateY(-15px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes third {
+    0% {
+        transform: scale(1.1) ;
+    }
+    50% {
+        transform: scale(.95) ;
+    }
+    100% {
+        transform: scale(1.1) ;
+    }
+}
+
+.GuideContainer {
+    position: absolute;
+    background-color: #000000db;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease;
+    display: flex;
+    z-index: 1;
+}
+
+.GuideContent {
+    background-color: #e8e8e8;
+    border-radius: 3px;
+    width: 17rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.GuideTitle {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: .1rem;
+    font-size: 20px;
+    margin-top: 6px;
+    padding-top: 10px;
+}
+
+.GameGuide {
+    padding: 10px;
+}
+
+.GameGuide > ul > li {
+    display: flex;
+    align-items: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    gap: 5px;
+    color: #2b2b2b;
+    letter-spacing: .1px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.icon-Guide{
+    width: 20px;
+    position: relative;
+    top: 5px;
+}
+.attention{
+    width: 26px;
+}
+
+.GameGuide > ul > li:not(li:last-of-type) {
+    margin-bottom: 5px;
+}
+.GameGuide > ul > li:last-of-type {
+    margin-top: 6px;
+}
+
+.Offcontainer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(56, 56, 56, 0.92);
+    width: 195px;
+    height: 162px;
+    border-radius: 0 10px 0 0;
+    transition: 
+    all .6s cubic-bezier(.99,-0.47,0,1.49);
+    clip-path: circle(0% at 0px 153px);
+    display: flex;
+    align-items: end;
+}
+.ll{
+    transition: all .3s ease-in-out;
+}
+.Closecontainer {
+    background-color: rgb(202, 72, 72);
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.Closecontainer > p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .8px;
+}
+
+.OffBTN {
+    padding: 6px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    cursor: pointer;
+    background-color: rgb(213, 39, 39);
+    border-radius: 5px;
+    border: 0;
+    transition: all .1s;
+}
+.OffBTN > i {
+    color: white;
+}
+
+.CloseQuestionBox {
+    /* padding: 6px 16px 7px 8px;
+    position: absolute;
+    left: 46px;
+    background-color: #d9d9d9;
+    border-radius: 8px 8px 8px 0;
+    box-shadow: 0 0 7px #fbfbfb; */
+    position: absolute;
+    left: 12px;
+    bottom: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.CloseQuestionBox h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #e3e3e3;
+}
+.CloseQuestionBox button {
+    font-family: 'Oswald', sans-serif;
+    border: 0;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: .3px;
+    color: white;
+    border-radius: 3px;
+    transition: all .1s;
+}
+
+.CloseQuestionBox button:first-of-type {
+    background-color: #d51b1b;
+    margin-right: 2px;
+}
+.CloseQuestionBox button:last-of-type {
+    background-color: green;
+}
+
+.titleCloseBox {
+    padding: 5px 0 10px 0;
+}
+
+.OffBTN:active , .CloseQuestionBox button:active{
+    transform: scale(.91);
+}
+
+.EndGameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    display: none;
+    transition: all 0.8s;
+}
+
+.EndGameOverlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.EndGameOverlay .container {
+    position: absolute;
+    display: flex;
+    left: 0px;
+    right: 0;
+    bottom: 0px;
+    background: url(pictures/8.jpg) center / cover no-repeat;
+    /* background: url(pictures/33.jpg) -350px 0px/ cover no-repeat; */
+    transition: all 0.5s ease;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px 35px 0 0;
+    overflow: hidden;
+    height: 0;
+    border-top: 2px solid #525252;
+}
+
+.EndGameOverlay .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.74);
+}
+
+.AchivementContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    bottom: 19px;
+    position: relative;
+}
+
+.AchivementContainer h1 {
+    color: white;
+    font-family: 'Rubik Moonrocks', cursive;
+    text-align: center;
+    font-size: 41px;
+    letter-spacing: 1.5px;
+}
+
+.AchivementContainer p , .FooterEndPage p {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    font-size: 19px;
+    letter-spacing: .5px;
+    margin-bottom: 5px;
+}
+
+.FooterEndPage p {
+    margin: 0;
+    font-family: oswald;
+    font-weight: 400;
+    color: #a2a2a2;
+}
+
+.AchivementContainer p {
+    opacity: 0;
+    transition: opacity .5s;
+    background-color: #fff4f457;
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+
+.spanEnd {
+    margin-left: 5px;
+    font-size: 20px;
+    border-bottom: 2px solid #fff6f6;
+    border-radius: 2px;
+    color: black;
+    font-weight: bolder;
+}
+
+.FooterEndPage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    padding: 9px 0 11px 0;
+    background-color: #0404048a;
+}
+
+.pEndcontainer {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.pEndcontainer > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.ShowTheWordSpan {
+    border-bottom: 2px solid #f0b950;
+}
+mark {
+    background-color: #f2f2f2;
+    padding: 0 3px;
+    border-radius: 5px 5px 0 0;
+}
